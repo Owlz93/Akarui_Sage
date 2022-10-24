@@ -2,8 +2,9 @@
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
 
-// Create a new client instance
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
+
+client.login(config.BOT_TOKEN);
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
@@ -16,5 +17,4 @@ client.on('message', message => {
     }
 });
 
-client.login(MTAzNDA0OTEzODg5NzIwNzI5Ng.GDnbji.aQ1Hdu_JfqABKzxB1GwjMen36rC_BArxo6fd2c);
 
