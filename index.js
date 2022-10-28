@@ -46,4 +46,4 @@ client.on(Events.InteractionCreate, async interaction => {
 /*----------*/
 
 // Log in to Discord with your client's token
-client.login("MTAzNDA0OTEzODg5NzIwNzI5Ng.GDnbji.aQ1Hdu_JfqABKzxB1GwjMen36rC_BArxo6fd2c");
+client.login(token);
