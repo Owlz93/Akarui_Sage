@@ -1,9 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 
-//Commend options for all agents
+/*Commend options for all agents that still need adding:
 
-/*
 Astra: Nice Nice
 Breach: Hell Of A Job
 Brimstone: GoodWork
@@ -31,7 +30,14 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('commend')
 		.setDescription('commend as your favorite agent'),
+		.addStringOption( option =>
+					option.setName('agent')
+						.setDescription('agent catalog')
+						.setRequired(true)
+						.addChoices(
+							 {name: 'Sage', value: 'Wonderful'},
+						))};
 	async execute(interaction) {
-		await interaction.reply('You were a boulder!');
+		await interaction.reply(value);
 	}
 };
