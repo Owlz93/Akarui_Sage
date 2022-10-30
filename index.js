@@ -15,7 +15,7 @@ client.once(Events.ClientReady, c => {
 });
 
 /*-----listen to commands-----*/
-client.commands = new Collection();
+client.commands = new Discord.Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
