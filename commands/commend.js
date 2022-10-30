@@ -36,7 +36,7 @@ module.exports = {
 						.setRequired(true)
 						.addChoices(
 							 {name: 'Sage', value: 'Wonderful'},
-						))};
+						)),
 	async execute(interaction) {
 		await interaction.reply(value);
 	}
