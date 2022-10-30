@@ -20,7 +20,7 @@ module.exports = {
             + `${eyoTeamEmoji} for EYO team\n`
             + `${susTeamEmoji} for Sus team`);
 
-    channel.send({ embeds: [embed] });
+            channel.send({ embeds: [embed] });
     messageEmbed.react(eyoTeamEmoji);
     messageEmbed.react(susTeamEmoji);
 
