@@ -23,6 +23,10 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
+client.on('ready', () => {
+    console.log('bot is online!');
+});
+
 /*client.once(Events.ClientReady, () => {
 	console.log('Ready to listen to commands!');
 });
@@ -33,17 +37,6 @@ client.on(Events.InteractionCreate, async interaction => {
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
-	*/
-
-// Setting up reaction role command
-
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-	 const args = message.content.slice(prefix.length).split(/ +/);
-	 const command = args.shift().toLowerCase();
-	 if (command === 'reactionrole') {
-			 client.commands.get('reactionrole').execute(message, args, Discord, client);
-	 }
 
 	try {
 		await command.execute(interaction);
@@ -52,6 +45,24 @@ client.on(Events.InteractionCreate, async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+
+	*/
+
+// Setting up reaction role command
+
+client.on('message', message => {
+
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    if (command === 'reactionrole') {
+        client.commands.get('reactionrole').execute(message, args, Discord, client);
+    }
+
+});
+
+
 /*----------*/
 
 // Log in to Discord with your client's token
