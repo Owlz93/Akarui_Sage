@@ -6,7 +6,8 @@ module.exports = {
 		.setName('reactionrole')
 		.setDescription('Sets a reaction role'),
   async execute(message, args, Discord, client) {
-    const channel = await client.channels.fetch('1036302764965363773');
+    const channel = '1036302764965363773';
+    await client.channels.fetch('1036302764965363773');
     const yellowTeamRole = message.guild.roles.cache.find(role => role.name === "EYO");
     const blueTeamRole = message.guild.roles.cache.find(role => role.name === "Sus");
 
@@ -20,7 +21,7 @@ module.exports = {
             + `${eyoTeamEmoji} for EYO team\n`
             + `${susTeamEmoji} for Sus team`);
 
-    channel.send({ embeds: [embedExample] });
+    let messageEmbed = await message.channel.send(embedExample);
     messageEmbed.react(eyoTeamEmoji);
     messageEmbed.react(susTeamEmoji);
 
