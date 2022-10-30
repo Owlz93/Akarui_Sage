@@ -6,21 +6,21 @@ module.exports = {
 		.setName('reactionrole')
 		.setDescription('Sets a reaction role'),
   async execute(message, args, Discord, client) {
-    const channel = '1036302764965363773';
+    const channel = await client.channels.fetch('1036302764965363773');
     const yellowTeamRole = message.guild.roles.cache.find(role => role.name === "EYO");
     const blueTeamRole = message.guild.roles.cache.find(role => role.name === "Sus");
 
     const eyoTeamEmoji = ':eyes:';
     const susTeamEmoji = ':face_with_raised_eyebrow:';
 
-    const embed = new EmbedBuilder()
+    const embedExample = new EmbedBuilder()
         .setColor('#e42643')
         .setTitle('Choose a team to play on!')
         .setDescription('Choosing a team will allow you to interact with your teammates!\n\n'
             + `${eyoTeamEmoji} for EYO team\n`
             + `${susTeamEmoji} for Sus team`);
 
-            channel.send({ embeds: [embed] });
+    channel.send({ embeds: [embedExample] });
     messageEmbed.react(eyoTeamEmoji);
     messageEmbed.react(susTeamEmoji);
 
