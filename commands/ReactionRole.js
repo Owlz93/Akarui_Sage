@@ -12,14 +12,14 @@ module.exports = {
     const eyoTeamEmoji = ':eyes:';
     const susTeamEmoji = ':face_with_raised_eyebrow:';
 
-    let embed = new Discord.MessageEmbed()
+    const embed = new EmbedBuilder()
         .setColor('#e42643')
         .setTitle('Choose a team to play on!')
         .setDescription('Choosing a team will allow you to interact with your teammates!\n\n'
             + `${eyoTeamEmoji} for EYO team\n`
             + `${susTeamEmoji} for Sus team`);
 
-    let messageEmbed = await message.channel.send(embed);
+    channel.send({ embeds: [embed] });
     messageEmbed.react(eyoTeamEmoji);
     messageEmbed.react(susTeamEmoji);
 
