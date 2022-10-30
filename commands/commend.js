@@ -11,14 +11,10 @@ Cypher: Well done
 Fade: Not Bad
 Jett: GoodWork
 Kay0: SolidWork
-KillJoy: You Did Well
 Neon: Nice Job
 Omen: Well done
 Phoenix: Nice
 Raze: Hey Nice Work
-Reyna: Impressive
-Sage: Wonderful
-Skye: GoodOnYa
 Sova: Good
 Viper: I'm... Impressed
 Yoru: Not Bad
@@ -36,8 +32,12 @@ module.exports = {
 						.setRequired(true)
 						.addChoices(
 							 {name: 'Sage', value: 'Wonderful'},
+							 {name: 'Skye', value: 'Good On Ya'},
+							 {name: 'Reyna', value: 'Impressive'},
+							 {name: 'Killjoy', value: 'You Did Well'},
 						)),
 	async execute(interaction) {
-		await interaction.reply(value);
+		const agent = interaction.options.getString('agent');
+		await interaction.reply(agent);
 	}
 };
