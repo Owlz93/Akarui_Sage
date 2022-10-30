@@ -29,7 +29,7 @@ Harbor: Hah, Well done
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('commend')
-		.setDescription('commend as your favorite agent'),
+		.setDescription('commend as your favorite agent')
 		.addStringOption( option =>
 					option.setName('agent')
 						.setDescription('agent catalog')
