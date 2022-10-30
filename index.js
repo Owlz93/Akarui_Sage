@@ -1,12 +1,12 @@
 // Require the necessary discord.js classes
-const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, Partials } = require('discord.js');
 const { token } = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
 
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds], partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
