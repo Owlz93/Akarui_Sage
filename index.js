@@ -27,7 +27,7 @@ client.on('ready', () => {
     console.log('bot is online!');
 });
 
-/*client.once(Events.ClientReady, () => {
+client.once(Events.ClientReady, () => {
 	console.log('Ready to listen to commands!');
 });
 
@@ -46,11 +46,11 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
-	*/
+
 
 // Setting up reaction role command
 
-client.on('message', message => {
+/*client.on('message', message => {
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -61,7 +61,7 @@ client.on('message', message => {
     }
 
 });
-
+*/
 
 /*----------*/
 

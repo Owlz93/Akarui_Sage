@@ -1,6 +1,9 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 module.exports = {
-    name: 'reactionrole',
-    description: "Sets up a reaction role message!",
+	data: new SlashCommandBuilder()
+		.setName('reactionrole')
+		.setDescription('Sets a reaction role'),
     async execute(message, args, Discord, client) {
         const channel = '1036302764965363773';
         const yellowTeamRole = message.guild.roles.cache.find(role => role.name === "EYO");
