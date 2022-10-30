@@ -7,7 +7,6 @@ module.exports = {
 		.setDescription('Sets a reaction role'),
   async execute(message, args, Discord, client) {
     const channel = '1036302764965363773';
-    await client.channels.fetch('1036302764965363773');
     const yellowTeamRole = message.guild.roles.cache.find(role => role.name === "EYO");
     const blueTeamRole = message.guild.roles.cache.find(role => role.name === "Sus");
 
