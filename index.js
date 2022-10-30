@@ -16,16 +16,14 @@ client.once(Events.ClientReady, c => {
 
 /*-----listen to commands-----*/
 client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-
-    client.commands.set(command.name, command);
+	const filePath = path.join(commandsPath, file);
+	const command = require(filePath);
+	client.commands.set(command.data.name, command);
 }
-
-client.on('ready', () => {
-    console.log('bot is online!');
-});
 
 client.once(Events.ClientReady, () => {
 	console.log('Ready to listen to commands!');
@@ -45,7 +43,6 @@ client.on(Events.InteractionCreate, async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
-
 
 
 // Setting up reaction role command
