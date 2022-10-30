@@ -16,16 +16,14 @@ client.once(Events.ClientReady, c => {
 
 /*-----listen to commands-----*/
 client.commands = new Collection();
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
-	const command = require(filePath);
-	client.commands.set(command.data.name, command);
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
 }
 
-client.once(Events.ClientReady, () => {
+/*client.once(Events.ClientReady, () => {
 	console.log('Ready to listen to commands!');
 });
 
@@ -35,6 +33,17 @@ client.on(Events.InteractionCreate, async interaction => {
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
+	*/
+
+// Setting up reaction role command
+
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+	 const args = message.content.slice(prefix.length).split(/ +/);
+	 const command = args.shift().toLowerCase();
+	 if (command === 'reactionrole') {
+			 client.commands.get('reactionrole').execute(message, args, Discord, client);
+	 }
 
 	try {
 		await command.execute(interaction);
