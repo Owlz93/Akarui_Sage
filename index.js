@@ -3,6 +3,7 @@ const { Client, Collection, Events, GatewayIntentBits, Partials } = require('dis
 const { token } = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
+module.exports.client = client;
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds,GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent], partials: ["MESSAGE", "CHANNEL", "REACTION"] });
