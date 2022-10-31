@@ -1,27 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 
-
-/*Commend options for all agents that still need adding:
-
-Astra: Nice Nice
-Breach: Hell Of A Job
-Brimstone: GoodWork
-Chamber: Bravo
-Cypher: Well done
-Fade: Not Bad
-Jett: GoodWork
-Kay0: SolidWork
-Neon: Nice Job
-Omen: Well done
-Phoenix: Nice
-Raze: Hey Nice Work
-Sova: Good
-Viper: I'm... Impressed
-Yoru: Not Bad
-Harbor: Hah, Well done
-*/
-
-
+//commends for the agent replies
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('commend')
@@ -35,9 +14,34 @@ module.exports = {
 							 {name: 'Skye', value: 'Good On Ya'},
 							 {name: 'Reyna', value: 'Impressive'},
 							 {name: 'Killjoy', value: 'You Did Well'},
-						)),
+							 {name: 'Astra', value: 'Nice Nice'},
+							 {name: 'Breach', value: 'Hell Of A Job'},
+							 {name: 'Brimstone', value: 'GoodWork'},
+							 {name: 'Chamber', value: 'Bravo'},
+							 {name: 'Cypher', value: 'Well done'},
+							 {name: 'Fade', value: 'Not Bad'},
+							 {name: 'Jett', value: 'Good Work'},
+							 {name: 'Kay/0', value: 'Solid Work'},
+							 {name: 'Neon', value: 'Nice Job'},
+							 {name: 'Omen', value: 'Well done'},
+							 {name: 'Phoenix', value: 'Nice'},
+							 {name: 'Raze', value: 'Hey Nice Work'},
+							 {name: 'Sova', value: 'Good'},
+							 {name: 'Viper', value: 'I am... Impressed'},
+							 {name: 'Yoru', value: 'Not Bad'},
+							 {name: 'Harbor', value: 'Hah, Well done'},
+						))
+			.addUserOption(option =>
+						option.setName('user')
+							.setDescription('selected user')
+							.setRequired(false),
+			))
 	async execute(interaction) {
+		//get the agent reply
 		const agent = interaction.options.getString('agent');
+		//get the person to react to
+		const target = interaction.options.getUser('user');
+
 		await interaction.reply(agent);
 	}
 };
