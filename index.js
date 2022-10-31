@@ -45,7 +45,7 @@ client.on(Events.InteractionCreate, async interaction => {
 /*-------*/
 
 /*-----welcome members-----*/
-client.on('guildMemberAdd', guildMember => {
+client.on(Events.GuildMemberAdd, guildMember => {
 	const channel = guildMember.guild.channels.cache.find(channel => channel.name == 'welcome');
 	console.log('listens to a new member comming in..');
 	if(!channel) return;
