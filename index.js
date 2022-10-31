@@ -52,7 +52,7 @@ client.on("guildMemberAdd", member => {
 
 	console.log('Welcomes new member.');
 
-	channel.send(`welcome ${member});
+	channel.send(`welcome ${member}`);
 });
 /*-------*/
 
