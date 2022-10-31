@@ -27,6 +27,8 @@ module.exports = {
     //messageEmbed.react(eyeTeamEmoji);
     //messageEmbed.react(browTeamEmoji);
 
+
+/*
     client.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
@@ -65,6 +67,9 @@ module.exports = {
             return;
         }
     });
+
+		*/
+
   }
 
 }
