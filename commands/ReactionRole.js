@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 const index = require("../index.js");
 
 
-module.exports = (client) {
+module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('reactionrole')
 		.setDescription('Sets a reaction role'),
