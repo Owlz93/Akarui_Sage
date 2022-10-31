@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
-const Discord = require('discord.js');
-const client = new Discord.Client();
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -29,13 +28,6 @@ module.exports = {
 			])
 				.catch(error => console.error('One of the emojis failed to react:', error));
 
-client.on("messageReactionAdd", function(messageReaction, user){
-  console.log(`a reaction is added to a message`);
-});
-
-
-
-/*
     client.on("messageReactionAdd", async (messageReaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
@@ -75,7 +67,7 @@ client.on("messageReactionAdd", function(messageReaction, user){
         }
     });
 
-*/
+
 
   }
 
