@@ -4,10 +4,9 @@ const index = require("../index.js");
 
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('reactionrole')
-		.setDescription('Sets a reaction role'),
-  async execute(message, args, Discord, client) {
+		name:'reactionrole',
+		description:'Sets a reaction role',
+  async execute(client, message, args, Discord) {
     const channel = '1036615904286478416';
     const eyeTeamRole = message.guild.roles.cache.find(role => role.name === "Eyes");
     const browTeamRole = message.guild.roles.cache.find(role => role.name === "Eyebrow");
