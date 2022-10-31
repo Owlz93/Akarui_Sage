@@ -7,8 +7,7 @@ const path = require('node:path');
 //temporary deploy-commands integration here
 /* deploy-commands.js*/
 const { REST, Routes } = require('discord.js');
-const { clientId, guildId, token } = require('./config.json');
-const fs = require('node:fs');
+const { clientId, guildId } = require('./config.json');
 
 const commands = [];
 
