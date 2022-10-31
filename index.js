@@ -45,18 +45,14 @@ client.on(Events.InteractionCreate, async interaction => {
 /*-------*/
 
 /*-----welcome members-----*/
-client.on(Events.GuildMemberAdd, guildMember => {
-	const channel = guildMember.guild.channels.cache.find(channel => channel.name == 'welcome');
+client.on("guildMemberAdd", member => {
+	const channel = client.channels.get('1036639406288818216');
 	console.log('listens to a new member comming in..');
 	if(!channel) return;
 
 	console.log('Welcomes new member.');
-	const embed = new Discord.messageEmbed()
-			.setTitle('Welcome')
-			.setDescription(`Welcome to the server! ${guildMember}`)
-			.setColor('#0000ff')
-			.setTimestamp()
-	channel.send(embed);
+
+	channel.send(`welcome ${member});
 })
 /*-------*/
 
