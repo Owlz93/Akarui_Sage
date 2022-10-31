@@ -20,7 +20,7 @@ module.exports = {
             + `${eyeTeamEmoji} for Eyes team\n`
             + `${browTeamEmoji} for Eyebrow team`);
 
-    let messageEmbed = message.channel.send({embeds: [embedExample] });
+    let messageEmbed = await message.channel.send({embeds: [embedExample] });
 		message.react(eyeTeamEmoji)
 				.then(() => message.react(':face_with_raised_eyebrow:'))
 				.catch(error => console.error('One of the emojis failed to react', error));
