@@ -22,19 +22,20 @@ module.exports = {
             + `${browTeamEmoji} for Eyebrow team`);
 
     let messageEmbed = await message.channel.send({embeds: [embedExample] });
-		Promise.all([
-			messageEmbed.react(eyeTeamEmoji),
-			messageEmbed.react(browTeamEmoji),
-		]);
+			Promise.all([
+				messageEmbed.react(eyeTeamEmoji),
+				messageEmbed.react(browTeamEmoji),
+			])
+				.catch(error => console.error('One of the emojis failed to react:', error));
 
-    client.on("messageReactionAdd", await(messageReaction, user){
-			console.log(`a reaction is added to a message`);
-		});
+		client.on("messageReactionAdd", function(messageReaction, user){
+    console.log(`a reaction is added to a message`);
+});
 
 
 
-		/*
-		=> {
+/*
+    client.on("messageReactionAdd", async (messageReaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
         if (user.bot) return;
@@ -52,9 +53,7 @@ module.exports = {
         }
 
     });
-
-		*/
-
+*/
     client.on('messageReactionRemove', async (reaction, user) => {
 
         if (reaction.message.partial) await reaction.message.fetch();
