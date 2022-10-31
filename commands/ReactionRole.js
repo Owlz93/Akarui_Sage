@@ -28,12 +28,16 @@ module.exports = {
 			])
 				.catch(error => console.error('One of the emojis failed to react:', error));
 
-    client.on("messageReactionAdd", async (messageReaction, user) => {
+
+
+
+    client.on("messageReactionAdd", async (reaction, user) => {
+			   //Await responses in partials
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
-        if (user.bot) return;
-        if (!reaction.message.guild) return;
-
+				if (user.bot) return; //Stops bot from entering
+        if (!reaction.message.guild) return; //Checks if reactor is in the server
+				//Checks the specific channel for reactions then adds role associated
         if (reaction.message.channel.id == channel) {
             if (reaction.emoji.name === eyeTeamEmoji) {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(eyeTeamRole);
