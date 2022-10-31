@@ -24,11 +24,11 @@ module.exports = {
     embedMessage.react(eyeTeamEmoji)
 	});
 
-
+/*
 		message.react('eyeTeamEmoji')
 				.then(() => message.react('browTeamEmoji'))
 				.catch(error => console.error('One of the emojis failed to react', error));
-
+*/
 
     //messageEmbed.react(eyeTeamEmoji);
     //messageEmbed.react(browTeamEmoji);
