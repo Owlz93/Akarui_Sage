@@ -7,22 +7,22 @@ module.exports = {
 		.setDescription('Sets a reaction role'),
   async execute(message, args, Discord, client) {
     const channel = '1036302764965363773';
-    const yellowTeamRole = message.guild.roles.cache.find(role => role.name === "EYO");
-    const blueTeamRole = message.guild.roles.cache.find(role => role.name === "Sus");
+    const eyeTeamRole = message.guild.roles.cache.find(role => role.name === "Eyes");
+    const browTeamRole = message.guild.roles.cache.find(role => role.name === "Eyebrow");
 
-    const eyoTeamEmoji = ':eyes:';
-    const susTeamEmoji = ':face_with_raised_eyebrow:';
+    const eyeTeamEmoji = ':eyes:';
+    const browTeamEmoji = ':face_with_raised_eyebrow:';
 
     const embedExample = new EmbedBuilder()
         .setColor('#e42643')
         .setTitle('Choose a team to play on!')
         .setDescription('Choosing a team will allow you to interact with your teammates!\n\n'
-            + `${eyoTeamEmoji} for EYO team\n`
-            + `${susTeamEmoji} for Sus team`);
+            + `${eyeTeamEmoji} for Eyes team\n`
+            + `${browTeamEmoji} for Eyebrow team`);
 
     let messageEmbed = await message.channel.send({embeds: [embedExample] });
-    messageEmbed.react(eyoTeamEmoji);
-    messageEmbed.react(susTeamEmoji);
+    messageEmbed.react(eyeTeamEmoji);
+    messageEmbed.react(browTeamEmoji);
 
     client.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
@@ -31,11 +31,11 @@ module.exports = {
         if (!reaction.message.guild) return;
 
         if (reaction.message.channel.id == channel) {
-            if (reaction.emoji.name === eyoTeamEmoji) {
-                await reaction.message.guild.members.cache.get(user.id).roles.add(eyoTeamRole);
+            if (reaction.emoji.name === eyeTeamEmoji) {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(eyeTeamRole);
             }
-            if (reaction.emoji.name === susTeamEmoji) {
-                await reaction.message.guild.members.cache.get(user.id).roles.add(susTeamRole);
+            if (reaction.emoji.name === browTeamEmoji) {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(browTeamRole);
             }
         } else {
             return;
@@ -52,11 +52,11 @@ module.exports = {
 
 
         if (reaction.message.channel.id == channel) {
-            if (reaction.emoji.name === eyoTeamEmoji) {
-                await reaction.message.guild.members.cache.get(user.id).roles.remove(eyoTeamRole);
+            if (reaction.emoji.name === eyeTeamEmoji) {
+                await reaction.message.guild.members.cache.get(user.id).roles.remove(eyeTeamRole);
             }
-            if (reaction.emoji.name === susTeamEmoji) {
-                await reaction.message.guild.members.cache.get(user.id).roles.remove(susTeamRole);
+            if (reaction.emoji.name === browTeamEmoji) {
+                await reaction.message.guild.members.cache.get(user.id).roles.remove(browTeamRole);
             }
         } else {
             return;
