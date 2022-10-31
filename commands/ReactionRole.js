@@ -26,11 +26,8 @@ module.exports = {
 			messageEmbed.react(eyeTeamEmoji),
 			messageEmbed.react(browTeamEmoji),
 		])
-/*
-		messageEmbed.react(eyeTeamEmoji);
-		messageEmbed.react(browTeamEmoji);
-*/
-    client.on("messageReactionAdd", async (reaction, user) => {
+
+    client.on(Events.MessageReactionAdd, async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
         if (user.bot) return;
@@ -49,7 +46,7 @@ module.exports = {
 
     });
 
-    client.on('messageReactionRemove', async (reaction, user) => {
+    client.on(Events.MessageReactionRemove, async (reaction, user) => {
 
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
