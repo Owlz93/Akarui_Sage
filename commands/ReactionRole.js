@@ -13,14 +13,14 @@ module.exports = {
     const eyoTeamEmoji = ':eyes:';
     const susTeamEmoji = ':face_with_raised_eyebrow:';
 
-    const embed = new EmbedBuilder()
+    const embedExample = new EmbedBuilder()
         .setColor('#e42643')
         .setTitle('Choose a team to play on!')
         .setDescription('Choosing a team will allow you to interact with your teammates!\n\n'
             + `${eyoTeamEmoji} for EYO team\n`
             + `${susTeamEmoji} for Sus team`);
 
-            channel.send({ embeds: [embed] });
+    let messageEmbed = await message.channel.send(embedExample);
     messageEmbed.react(eyoTeamEmoji);
     messageEmbed.react(susTeamEmoji);
 
