@@ -42,6 +42,6 @@ module.exports = {
 		//get the person to react to
 		const target = interaction.options.getUser('user');
 
-		await interaction.reply(`${agent} ${target.username}`);
+		await interaction.reply(`${agent} @${target.username}`);
 	}
 };
