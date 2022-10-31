@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds], partials: ["MESSAGE", "CHANNEL", "REACTION"] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds], partials: ["MESSAGE", "CHANNEL", "REACTION", "GUILD_MEMBERS"] });
 
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
