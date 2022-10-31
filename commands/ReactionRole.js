@@ -25,7 +25,7 @@ module.exports = {
 		Promise.all([
 			messageEmbed.react(eyeTeamEmoji),
 			messageEmbed.react(browTeamEmoji),
-		])
+		]);
 
     client.on("messageReactionAdd", await(messageReaction, user){
 			console.log(`a reaction is added to a message`);
