@@ -21,8 +21,8 @@ module.exports = {
             + `${browTeamEmoji} for Eyebrow team`);
 
     let messageEmbed = await message.channel.send({embeds: [embedExample] })
-		message.react(eyeTeamEmoji);
-		message.react(browTeamEmoji);
+		messageEmbed.react(eyeTeamEmoji);
+		messageEmbed.react(browTeamEmoji);
 
 
 		/*.then(embedMessage => {
