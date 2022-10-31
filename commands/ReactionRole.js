@@ -6,7 +6,7 @@ module.exports = {
 		.setName('reactionrole')
 		.setDescription('Sets a reaction role'),
   async execute(message, args, Discord, client) {
-    const channel = '1036302764965363773';
+    const channel = '1036615904286478416';
     const eyeTeamRole = message.guild.roles.cache.find(role => role.name === "Eyes");
     const browTeamRole = message.guild.roles.cache.find(role => role.name === "Eyebrow");
 
@@ -23,23 +23,6 @@ module.exports = {
     let messageEmbed = await message.channel.send({embeds: [embedExample] })
 		messageEmbed.react(eyeTeamEmoji);
 		messageEmbed.react(browTeamEmoji);
-
-
-		/*.then(embedMessage => {
-    embedMessage.react(eyeTeamEmoji)}).then(embedMessage => {
-    embedMessage.react(browTeamEmoji)
-	});
-
-
-		message.react('eyeTeamEmoji')
-				.then(() => message.react('browTeamEmoji'))
-				.catch(error => console.error('One of the emojis failed to react', error));
-*/
-
-    //messageEmbed.react(eyeTeamEmoji);
-    //messageEmbed.react(browTeamEmoji);
-
-
 
     client.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
