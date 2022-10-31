@@ -42,6 +42,21 @@ client.on(Events.InteractionCreate, async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+/*-------*/
+
+/*-----welcome members-----*/
+client.on('guildMemberAdd', guildMember => {
+	const channel = guildMember.guild.channels.cache.find(channel => channel.name == 'welcome-test');//would need to change for own server
+	if(!channel) return;
+
+	const embed = new Discord.messageEmbed()
+			.setTitle('Welcome')
+			.setDescription(`Welcome to the server! ${guildMember}`)
+			.setColor('#0000ff')
+			.setTimestamp()
+	channel.send(embed);
+})
+/*-------*/
 
 
 // Setting up reaction role command
