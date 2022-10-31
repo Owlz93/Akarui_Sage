@@ -21,10 +21,10 @@ module.exports = {
             + `${eyeTeamEmoji} for Eyes team\n`
             + `${browTeamEmoji} for Eyebrow team`);
 
-    let messageEmbed = await message.channel.send({embeds: [embedExample] })
+    let messageEmbed = await message.channel.send({embeds: [embedExample] });
 		Promise.all([
 			messageEmbed.react(eyeTeamEmoji),
-			messageEmbed.react(browTeamEmoji);
+			messageEmbed.react(browTeamEmoji),
 		])
 /*
 		messageEmbed.react(eyeTeamEmoji);
