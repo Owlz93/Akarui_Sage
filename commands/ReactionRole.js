@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const index = require("../index.js");
-const bot = index.client;
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
