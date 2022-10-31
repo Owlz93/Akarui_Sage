@@ -10,7 +10,7 @@ module.exports = {
     const eyeTeamRole = message.guild.roles.cache.find(role => role.name === "Eyes");
     const browTeamRole = message.guild.roles.cache.find(role => role.name === "Eyebrow");
 
-    const eyeTeamEmoji = ':eyes:';
+    const eyeTeamEmoji = '👀';
     const browTeamEmoji = '🤨';
 
     const embedExample = new EmbedBuilder()
@@ -20,19 +20,17 @@ module.exports = {
             + `${eyeTeamEmoji} for Eyes team\n`
             + `${browTeamEmoji} for Eyebrow team`);
 
-    let messageEmbed = await message.channel.send({embeds: [embedExample] }).then(embedMessage => {
-			embedMessage.react("🤨");
-		});
-		/*message.react(eyeTeamEmoji)
-				.then(() => message.react(':face_with_raised_eyebrow:'))
+    let messageEmbed = await message.channel.send({embeds: [embedExample] })
+		message.react(eyeTeamEmoji)
+				.then(() => message.react('browTeamEmoji'))
 				.catch(error => console.error('One of the emojis failed to react', error));
-*/
+
 
     //messageEmbed.react(eyeTeamEmoji);
     //messageEmbed.react(browTeamEmoji);
 
 
-/*
+
     client.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
@@ -72,7 +70,7 @@ module.exports = {
         }
     });
 
-		*/
+
 
   }
 
