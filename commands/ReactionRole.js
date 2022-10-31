@@ -27,7 +27,7 @@ module.exports = {
 			messageEmbed.react(browTeamEmoji),
 		])
 
-    client.on("messageReactionAdd", (messageReaction, user){
+    client.on("messageReactionAdd", async (messageReaction, user){
 			console.log(`a reaction is added to a message`);
 		});
 
