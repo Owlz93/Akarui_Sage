@@ -34,14 +34,14 @@ module.exports = {
 		.addUserOption(option =>
 					option.setName('user')
 						.setDescription('selected user')
-						.setRequired(false),
+						.setRequired(false)
 		),
 	async execute(interaction) {
 		//get the agent reply
 		const agent = interaction.options.getString('agent');
 		//get the person to react to
-		//const target = interaction.options.getUser('user');
+		const target = interaction.options.getUser('user');
 
-		await interaction.reply(agent);
+		await interaction.reply('${agent} ${target.username}');
 	}
 };
