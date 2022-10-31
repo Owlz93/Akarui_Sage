@@ -11,7 +11,7 @@ module.exports = {
     const browTeamRole = message.guild.roles.cache.find(role => role.name === "Eyebrow");
 
     const eyeTeamEmoji = ':eyes:';
-    const browTeamEmoji = ':face_with_raised_eyebrow:';
+    const browTeamEmoji = '🤨';
 
     const embedExample = new EmbedBuilder()
         .setColor('#e42643')
@@ -21,7 +21,7 @@ module.exports = {
             + `${browTeamEmoji} for Eyebrow team`);
 
     let messageEmbed = await message.channel.send({embeds: [embedExample] }).then(embedMessage => {
-			embedMessage.react(":face_with_raised_eyebrow:");
+			embedMessage.react("🤨");
 		});
 		/*message.react(eyeTeamEmoji)
 				.then(() => message.react(':face_with_raised_eyebrow:'))
