@@ -53,7 +53,7 @@ module.exports = {
         }
 
     });
-*/
+
     client.on('messageReactionRemove', async (reaction, user) => {
 
         if (reaction.message.partial) await reaction.message.fetch();
@@ -74,7 +74,7 @@ module.exports = {
         }
     });
 
-
+*/
 
   }
 
