@@ -20,9 +20,9 @@ module.exports = {
             + `${eyeTeamEmoji} for Eyes team\n`
             + `${browTeamEmoji} for Eyebrow team`);
 
-    let messageEmbed = message.channel.send({embeds: [embedExample] });
-    messageEmbed.react(eyeTeamEmoji);
-    messageEmbed.react(browTeamEmoji);
+    let messageEmbed = message.channel.send({embeds: [embedExample] }).then(embedMessage => {embedMessage.react(eyeTeamEmoji)});
+    //messageEmbed.react(eyeTeamEmoji);
+    //messageEmbed.react(browTeamEmoji);
 
     client.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
