@@ -31,11 +31,11 @@ module.exports = {
 							 {name: 'Yoru', value: 'Not Bad'},
 							 {name: 'Harbor', value: 'Hah, Well done'},
 						))
-						.addUserOption(option =>
-									option.setName('user')
-										.setDescription('selected user')
-										.setRequired(false),
-						)),
+		.addUserOption(option =>
+					option.setName('user')
+						.setDescription('selected user')
+						.setRequired(false),
+		),
 	async execute(interaction) {
 		//get the agent reply
 		const agent = interaction.options.getString('agent');
