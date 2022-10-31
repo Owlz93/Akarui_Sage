@@ -40,7 +40,7 @@ module.exports = {
 		//get the agent reply
 		const agent = interaction.options.getString('agent');
 		//get the person to react to
-		const target = interaction.options.getUser('user');
+		//const target = interaction.options.getUser('user');
 
 		await interaction.reply(agent);
 	}
