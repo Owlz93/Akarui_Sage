@@ -22,9 +22,14 @@ module.exports = {
             + `${browTeamEmoji} for Eyebrow team`);
 
     let messageEmbed = await message.channel.send({embeds: [embedExample] })
+		Promise.all([
+			messageEmbed.react(eyeTeamEmoji),
+			messageEmbed.react(browTeamEmoji);
+		])
+/*
 		messageEmbed.react(eyeTeamEmoji);
 		messageEmbed.react(browTeamEmoji);
-
+*/
     client.on("messageReactionAdd", async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
