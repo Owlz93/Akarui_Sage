@@ -9,17 +9,17 @@ const path = require('node:path');
 const { REST, Routes } = require('discord.js');
 const { clientId, guildId } = require('./config.json');
 
-const commands = [];
+const commandsEntries = [];
 
 // Grab all the command files from the commands directory you created earlier
-const commands = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandsEntries = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
  console.log(`Loading commands...`);
 
 // Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
-for (const file of commands) {
-	const command = require(`./commands/${file}`);
-	commands.push(command.data.toJSON());
+for (const file of commandsEntries) {
+	const commandEntry = require(`./commands/${file}`);
+	commandsEntries.push(commandEntry.data.toJSON());
 }
 
 // Construct and prepare an instance of the REST module
@@ -33,7 +33,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(
 			Routes.applicationGuildCommands(clientId, guildId),
-			{ body: commands },
+			{ body: commandsEntries },
 		);
 
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
