@@ -46,10 +46,11 @@ client.on(Events.InteractionCreate, async interaction => {
 
 /*-----welcome members-----*/
 client.on('guildMemberAdd', guildMember => {
-	const channel = guildMember.guild.channels.cache.find(channel => channel.name == 'welcome');//would need to change for own server
+	const channel = guildMember.guild.channels.cache.find(channel => channel.name == 'welcome');
+	console.log('listens to a new member comming in..');
 	if(!channel) return;
 
-	console.log('new user in channel.');
+	console.log('Welcomes new member.');
 	const embed = new Discord.messageEmbed()
 			.setTitle('Welcome')
 			.setDescription(`Welcome to the server! ${guildMember}`)
