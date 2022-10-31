@@ -20,7 +20,7 @@ module.exports = {
             + `${eyoTeamEmoji} for EYO team\n`
             + `${susTeamEmoji} for Sus team`);
 
-    let messageEmbed = await message.channel.send(embedExample);
+    let messageEmbed = await message.channel.send({embeds: [embedExample] });
     messageEmbed.react(eyoTeamEmoji);
     messageEmbed.react(susTeamEmoji);
 
