@@ -47,13 +47,16 @@ client.on(Events.InteractionCreate, async interaction => {
 
 /*-----welcome members-----*/
 client.on("guildMemberAdd", member => {
-	const channel = client.channels.get('1036639406288818216');
-	console.log('listens to a new member comming in..');
-	if(!channel) return;
+	console.log('listens to a new member..');
 
-	console.log('Welcomes new member.');
+	client.channels.get('1036639406288818216').send('Hello here!');
+	//const channel = client.channels.get('1036639406288818216');
 
-	channel.send(`welcome ${member}`);
+	//if(!channel) return;
+
+	//console.log('Welcomes new member.');
+
+	//channel.send(`welcome ${member}`);
 });
 /*-------*/
 
