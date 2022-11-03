@@ -10,43 +10,41 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds,GatewayIntentBits
 
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
-client.once(Events.ClientReady, c => {
+client.once(g.ClientReady, c => {
 	console.log(`Ready to gooo! Logged in as ${c.user.tag}`);
 });
 
 /*-----listen to commands-----*/
-client.commands = new Collection();
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+{
+	client.commands = new Collection();
+	const commandsPath = path.join(__dirname, 'commands');
+	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
-	const command = require(filePath);
-	client.commands.set(command.data.name, command);
-}
-
-client.once(Events.ClientReady, () => {
-	console.log('Ready to listen to commands!');
-});
-
-client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
-
-	const command = client.commands.get(interaction.commandName);
-
-	if (!command) return;
-
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+	for (const file of commandFiles) {
+		const filePath = path.join(commandsPath, file);
+		const command = require(filePath);
+		client.commands.set(command.data.name, command);
 	}
-});
+
+	client.on(Events.InteractionCreate, async interaction => {
+		if (!interaction.isChatInputCommand()) return;
+
+		const command = client.commands.get(interaction.commandName);
+
+		if (!command) return;
+
+		try {
+			await command.execute(interaction);
+		} catch (error) {
+			console.error(error);
+			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		}
+	});
+}
 /*-------*/
 
 /*-----welcome members-----*/
-client.on("guildMemberAdd", member => {
+client.on('guildMemberAdd', member => {
 	console.log('listens to a new member..');
 
 	client.channels.get('1036639406288818216').send('Hello here!');
