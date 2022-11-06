@@ -8,7 +8,6 @@ const Discord = require('discord.js');
 // Create a new client instance
 const client = new Discord.Client({ intents: [GatewayIntentBits.Guilds,GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent], partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
-
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
