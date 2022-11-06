@@ -3,81 +3,16 @@ const { Client, Collection, Events, GatewayIntentBits, Partials } = require('dis
 const { token } = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
-
+const Discord = require('discord.js');
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds,GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent], partials: ["MESSAGE", "CHANNEL", "REACTION"] });
+const client = new Discord.Client({ intents: [GatewayIntentBits.Guilds,GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent], partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
-// When the client is ready, run this code (only once)
-// We use 'c' for the event parameter to keep it separate from the already defined 'client'
-client.once(g.ClientReady, c => {
-	console.log(`Ready to gooo! Logged in as ${c.user.tag}`);
-});
+client.commands = new Discord.Collection();
+client.events = new Discord.Collection();
 
-/*-----listen to commands-----*/
-{
-	client.commands = new Collection();
-	const commandsPath = path.join(__dirname, 'commands');
-	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+['command_handler', 'event_handler'].forEach(handler =>{
+		require(`./handlers/${handler}`)(client, Discord);
+})
 
-	for (const file of commandFiles) {
-		const filePath = path.join(commandsPath, file);
-		const command = require(filePath);
-		client.commands.set(command.data.name, command);
-	}
-
-	client.on(Events.InteractionCreate, async interaction => {
-		if (!interaction.isChatInputCommand()) return;
-
-		const command = client.commands.get(interaction.commandName);
-
-		if (!command) return;
-
-		try {
-			await command.execute(interaction);
-		} catch (error) {
-			console.error(error);
-			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-		}
-	});
-}
-/*-------*/
-
-/*-----welcome members-----*/
-client.on('guildMemberAdd', member => {
-	console.log('listens to a new member..');
-
-	client.channels.get('1036639406288818216').send('Hello here!');
-	//const channel = client.channels.get('1036639406288818216');
-
-	//if(!channel) return;
-
-	//console.log('Welcomes new member.');
-
-	//channel.send(`welcome ${member}`);
-});
-/*-------*/
-
-
-// Setting up reaction role command
-
-/*client.on('message', message => {
-
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-    if (command === 'reactionrole') {
-        client.commands.get('reactionrole').execute(message, args, Discord, client);
-    }
-
-});
-*/
-
-/*----------*/
-
-// Log in to Discord with your client's token
 client.login(token);
-
-
-//This is a test to make sure I didn't break
