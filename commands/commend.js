@@ -1,10 +1,11 @@
-const { SlashCommandBuilder } = require('discord.js');
-
+//const { SlashCommandBuilder } = require('discord.js');
+const index = require("../index.js");
 //commends for the agent replies
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('commend')
-		.setDescription('commend as your favorite agent')
+	name:'commend',
+//	data: new SlashCommandBuilder()
+	//	.setName('commend')
+//		.setDescription('commend as your favorite agent')
 		.addStringOption( option =>
 					option.setName('agent')
 						.setDescription('agent catalog')
