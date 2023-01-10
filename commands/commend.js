@@ -3,7 +3,7 @@ const index = require("../index.js");
 //commends for the agent replies
 module.exports = {
 	name:'commend',
-	data: new Discord()
+	description:'Commends a user',
 	//	.setName('commend')
 //		.setDescription('commend as your favorite agent')
 		.addStringOption( option =>

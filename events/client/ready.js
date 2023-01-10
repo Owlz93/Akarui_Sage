@@ -1,3 +1,3 @@
 module.exports = () =>{
-  console.log('SageBot is online!')
+  console.log('NanoSwarm is online!')
 }
