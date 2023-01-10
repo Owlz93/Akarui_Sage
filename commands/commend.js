@@ -3,7 +3,7 @@ const index = require("../index.js");
 //commends for the agent replies
 module.exports = {
 	name:'commend',
-	description:'Commends a user',
+	description:'Commends a user';
 	//	.setName('commend')
 //		.setDescription('commend as your favorite agent')
 		.addStringOption( option =>
