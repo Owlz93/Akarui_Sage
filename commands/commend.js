@@ -3,7 +3,7 @@ const index = require("../index.js");
 //commends for the agent replies
 module.exports = {
 	name:'commend',
-//	data: new SlashCommandBuilder()
+	data: new SlashCommandBuilder()
 	//	.setName('commend')
 //		.setDescription('commend as your favorite agent')
 		.addStringOption( option =>
